@@ -1,31 +1,89 @@
+
 let index = 0;
 const imagens = document.querySelectorAll(".carrossel-img");
 const container = document.querySelector(".carrossel-container");
 
 function atualizarCarrossel() {
+    if (!container) return;
     container.style.transform = `translateX(${-index * 100}%)`;
 }
 
-document.querySelector(".carrossel-btn.right").addEventListener("click", () => {
+const botaoDireita = document.querySelector(".carrossel-btn.right");
+const botaoEsquerda = document.querySelector(".carrossel-btn.left");
+
+botaoDireita?.addEventListener("click", () => {
+    if (imagens.length === 0) return;
     index = (index + 1) % imagens.length;
     atualizarCarrossel();
 });
 
-document.querySelector(".carrossel-btn.left").addEventListener("click", () => {
+botaoEsquerda?.addEventListener("click", () => {
+    if (imagens.length === 0) return;
     index = (index - 1 + imagens.length) % imagens.length;
     atualizarCarrossel();
 });
 
-const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
+
+const observer = new IntersectionObserver(
+    (entries) => {
+        entries.forEach((entry) => {
             if (entry.isIntersecting) {
                 entry.target.classList.add("show");
                 observer.unobserve(entry.target);
             }
         });
-    }, {
-        threshold: 0.2
+    },
+    {
+        threshold: 0.2,
+    }
+);
+
+document
+    .querySelectorAll(".scroll-reveal")
+    .forEach((el) => observer.observe(el));
+
+
+
+function centralizarCarrossel(containerId, cardSelector) {
+    const container = document.getElementById(containerId);
+    if (!container) {
+        console.warn("Container não encontrado:", containerId);
+        return;
+    }
+
+    const cards = container.querySelectorAll(cardSelector);
+    if (cards.length === 0) {
+        console.warn("Nenhum card encontrado em:", containerId);
+        return;
+    }
+
+    const middleIndex = Math.floor(cards.length / 2);
+    const targetCard = cards[middleIndex];
+
+    const containerRect = container.getBoundingClientRect();
+    const cardRect = targetCard.getBoundingClientRect();
+
+    const offsetInside =
+        cardRect.left - containerRect.left;
+
+    const currentScroll = container.scrollLeft;
+
+    const scrollTo =
+        currentScroll +
+        offsetInside -
+        (containerRect.width / 2 - cardRect.width / 2);
+
+    container.scrollTo({
+        left: scrollTo,
+        behavior: "auto", 
     });
+}
 
-    document.querySelectorAll(".scroll-reveal").forEach((el) => observer.observe(el));
 
+window.addEventListener("load", () => {
+    if (window.matchMedia("(max-width: 480px)").matches) {
+        centralizarCarrossel("carrossel_servicos", ".card_servico");
+        centralizarCarrossel("carrossel_porque", ".porque_card");
+        centralizarCarrossel("carrossel_clientes", ".cliente_card");
+    }
+});

@@ -22,7 +22,8 @@ body {
     background-color: var(--grey-palette);
 }
 
-html, body {
+html,
+body {
     overflow-x: hidden;
     scroll-behavior: smooth;
 }
@@ -90,6 +91,10 @@ a {
 .navbar_logo img {
     height: 70px;
     width: auto;
+}
+
+.hero_video_mobile {
+    display: none;
 }
 
 .hero {
@@ -171,11 +176,12 @@ a {
     background-color: #ff3c3c;
 }
 
-.navbar_button:hover{
+.navbar_button:hover {
     transform: translateY(-4px) scale(1.02);
     box-shadow: 0px 0px 22px rgba(255, 0, 0, 0.8);
     background-color: #ff3c3c;
 }
+
 .servicos_titulo {
     position: relative;
     font-size: 64px;
@@ -294,6 +300,10 @@ a {
 
 .secao_padrao {
     padding: 0 90px;
+}
+
+.carrossel_mobile {
+    display: none;
 }
 
 .carrossel {
@@ -534,7 +544,7 @@ a {
 
 .onde_horario_lista {
     list-style: none;
-    
+
     padding: 0;
 }
 
@@ -555,7 +565,7 @@ a {
     width: 100%;
     max-width: 550px;
     border-radius: 8px;
-    box-shadow: 0px 5px 15px rgba(0,0,0,0.3);
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.3);
 }
 
 .clientes_section {
@@ -602,13 +612,13 @@ a {
     background: #2b2b2b;
     padding: 40px 30px;
     border-radius: 8px;
-    box-shadow: 0px 5px 15px rgba(0,0,0,0.3);
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.3);
     transition: 0.2s ease;
 }
 
 .cliente_card:hover {
     transform: translateY(-5px);
-    box-shadow: 0px 10px 25px rgba(0,0,0,0.4);
+    box-shadow: 0px 10px 25px rgba(0, 0, 0, 0.4);
 }
 
 .cliente_card h3 {
@@ -654,11 +664,13 @@ a {
     align-items: center;
     gap: 20px;
 }
-.estrelas2{
+
+.estrelas2 {
     font-size: 30px;
     color: var(--yellow-palette);
     margin-bottom: 10px;
 }
+
 .footer_icon img {
     width: 28px;
     height: 28px;
@@ -669,7 +681,7 @@ a {
 
 .footer_icon img:hover {
     transform: scale(1.18);
-    filter: brightness(1) saturate(10) hue-rotate(5deg); 
+    filter: brightness(1) saturate(10) hue-rotate(5deg);
 }
 
 .scroll-reveal {
@@ -701,5 +713,508 @@ a {
 @media (min-width: 1700px) {
     .secao_padrao {
         padding: 0 120px;
+    }
+}
+
+
+@media (max-width: 1024px) {
+    .hero {
+        height: 480px;
+        padding: 10px 40px;
+        align-items: center;
+        justify-content: center;
+        gap: 40px;
+        text-align: center;
+    }
+
+    .container_navbar {
+        padding: 0px 20px;
+    }
+
+    .titulo {
+        font-size: 64px;
+    }
+
+    .titulo::after {
+        height: 8px;
+        bottom: 5px;
+    }
+
+    .introducao {
+        font-size: 32px;
+    }
+
+    .subtitulo {
+        font-size: 16px;
+    }
+
+    .hero_button_display {
+        justify-content: center;
+    }
+
+    .navbar_link {
+        font-size: clamp(0.8rem, 1.3vw + 0.5rem, 1.3rem);
+        gap: clamp(10px, 4vw, 30px);
+    }
+
+    .hero_button {
+        padding: 10px 15px;
+        max-width: 15rem;
+        width: 15rem;
+        font-size: 24px;
+    }
+
+    .servicos_titulo {
+        font-size: 48px;
+        margin-top: 60px;
+    }
+
+    .porque_titulo {
+        font-size: 48px;
+    }
+
+    .historia_container{
+        align-items: flex-end;
+        grid-template-columns: 1.8fr 0.2fr;
+    }
+    
+    .historia_titulo {
+        font-size: 48px;
+    }
+
+    .historia_texto p {
+        font-size: 16px;
+    }
+
+    .historia_foto{
+        width: 280px;
+    }
+
+    .historia_shape{
+        width: 320px;
+        height: 230px;
+    }
+
+    .onde_titulo {
+        font-size: 48px;
+    }
+
+    .onde_horario_titulo {
+        font-size: 32px;
+    }
+
+    .onde_local_nome {
+        font-size: 32px;
+    }
+
+    .onde_subtitulo {
+        font-size: 18px;
+    }
+
+    .estrelas {
+        font-size: 30px;
+        margin: 0;
+    }
+
+    .onde_avaliacao {
+        font-size: 20px;
+    }
+
+    .onde_horario_lista li {
+        font-size: 20px;
+    }
+
+    .clientes_titulo {
+        font-size: 48px;
+    }
+
+    .clientes_subtitulo {
+        font-size: 20px;
+    }
+
+    .clientes_cards h3 {
+        font-size: 20px;
+    }
+
+    .cliente_card p {
+        font-size: 12px;
+    }
+
+    .estrelas2 {
+        font-size: 20px;
+    }
+
+    .footer_left {
+        font-size: 8px;
+    }
+
+    #carrossel_servicos {
+        display: flex;
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+        gap: 20px;
+        padding-bottom: 20px;
+
+        grid-template-columns: unset;
+    }
+    .carrossel_desktop {
+        display: none;
+    }
+
+    .carrossel_mobile {
+        display: block;
+    }
+
+    .servicos {
+        padding: 0px 40px;
+    }
+
+    .secao_padrao {
+        padding: 0px 40px;
+    }
+
+    #carrossel_servicos::-webkit-scrollbar {
+        height: 10px;
+    }
+
+    #carrossel_servicos::-webkit-scrollbar-thumb {
+        background: var(--red-palette);
+        border-radius: 10px;
+    }
+
+    .card_servico {
+        flex: 0 0 300px;
+        scroll-snap-align: center;
+        margin: 0;
+    }
+
+    .card_servico.destaque {
+        transform: none;
+    }
+
+    #carrossel_porque {
+        display: flex;
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+        gap: 20px;
+        grid-template-columns: unset;
+
+        scrollbar-width: none;
+    }
+
+    #carrossel_porque::-webkit-scrollbar {
+        display: none;
+    }
+
+    .porque_card {
+        flex: 0 0 clamp(180px, 40vw, 260px);
+        scroll-snap-align: start;
+    }
+}
+
+@media (max-width: 480px) {
+
+    .secao_padrao {
+        padding: 20px;
+    }
+
+    .navbar_logo img {
+        display: none;
+    }
+
+    .navbar_button {
+        display: none;
+    }
+
+
+    .container_navbar {
+        padding: 20px;
+    }
+
+    .navbar_link {
+        font-size: 1rem;
+    }
+
+    .hero_video_desktop {
+        display: none;
+    }
+
+    .hero_video_mobile {
+        display: block;
+    }
+
+    .titulo {
+        font-size: 48px;
+    }
+
+    .titulo::after {
+        height: 8px;
+        bottom: 5px;
+    }
+
+    .introducao {
+        font-size: 24px;
+    }
+
+    .subtitulo {
+        font-size: 14px;
+    }
+
+    .servicos {
+        padding: 0px 20px;
+    }
+
+    .servicos_titulo {
+        font-size: 43px;
+    }
+
+    .servicos_cards {
+        display: flex;
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+        gap: 20px;
+        padding: 10px 0 30px 0;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    .servicos_cards::-webkit-scrollbar {
+        display: none;
+    }
+
+    .card_servico {
+        flex: 0 0 85%;
+        scroll-snap-align: center;
+        max-width: none;
+    }
+
+    .card_servico.destaque {
+        transform: none !important;
+    }
+
+    .selo_destaque {
+        transform: rotate(25deg) scale(.85);
+    }
+
+    .card_info {
+        padding-top: 20px;
+    }
+
+    .carrossel_desktop {
+        display: none;
+    }
+
+    .carrossel_mobile {
+        display: block;
+    }
+
+    .servicos_titulo {
+        margin: 20px;
+    }
+
+
+    .porque_cards {
+        display: flex;
+        gap: 20px;
+        overflow-x: auto;
+        scroll-snap-type: x mandatory;
+        -webkit-overflow-scrolling: touch;
+        padding: 20px 0;
+        padding-left: calc((100vw - 80%) / 2);
+        scroll-padding-left: calc((100vw - 80%) / 2);
+    }
+
+    .porque_cards::-webkit-scrollbar {
+        display: none;
+    }
+
+    .porque_card {
+        flex: 0 0 80%;
+        scroll-snap-align: center;
+        max-width: none;
+
+        padding: 25px 15px;
+    }
+
+    .porque_icone {
+        width: 70px;
+        height: 70px;
+    }
+
+    .porque_card h3 {
+        font-size: 22px;
+    }
+
+    .porque_barra {
+        height: 4px;
+        width: 40%;
+    }
+
+    .historia_container {
+        display: flex;
+        flex-direction: column;
+        gap: 40px;
+        text-align: left;
+        align-items: center;
+    }
+
+    .historia_texto {
+        width: 100%;
+    }
+
+    .historia_titulo {
+        font-size: 36px;
+        margin-bottom: 20px;
+        text-align: left;
+    }
+
+    .historia_texto p {
+        font-size: 16px;
+        line-height: 1.4;
+    }
+
+    .historia_imagem {
+        position: relative;
+        width: 100%;
+        display: flex;
+        justify-content: flex-end;
+    }
+
+    .historia_foto {
+        width: 70%;
+        max-width: 260px;
+        position: relative;
+        z-index: 2;
+        margin-right: 0;
+    }
+
+    .historia_shape {
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        width: 85%;
+        height: 220px;
+        z-index: 1;
+    }
+
+    .onde_container {
+        margin-top: 60px;
+    }
+
+    .onde_grid {
+        display: flex;
+        flex-direction: column;
+        gap: 35px;
+    }
+
+
+    .onde_titulo {
+        font-size: 42px;
+        line-height: 1;
+        margin-bottom: 10px;
+    }
+
+    .onde_titulo span {
+        color: var(--red-palette);
+    }
+
+    .onde_local_nome {
+        font-size: 32px;
+        margin-bottom: 4px;
+    }
+
+    .onde_subtitulo {
+        font-size: 16px;
+        letter-spacing: 0.5px;
+        font-family: "Lato", sans-serif;
+        margin-bottom: 15px;
+    }
+
+    .onde_avaliacao {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        margin-bottom: 15px;
+    }
+
+    .onde_avaliacao span:first-child {
+        font-size: 22px;
+        font-weight: bold;
+    }
+
+    .estrelas {
+        font-size: 22px;
+        color: var(--yellow-palette);
+    }
+
+    .onde_endereco {
+        font-size: 17px;
+        line-height: 1.5;
+        margin-bottom: 25px;
+        font-family: "Lato", sans-serif;
+    }
+
+    .onde_horario_titulo {
+        font-size: 26px;
+        margin-bottom: 10px;
+    }
+
+    .onde_horario_lista li {
+        font-size: 16px;
+        font-family: "Lato", sans-serif;
+        margin-bottom: 4px;
+    }
+
+    .onde_mapa {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+    }
+
+    .onde_mapa_img {
+        width: 100%;
+        max-width: 380px;
+        border-radius: 10px;
+        box-shadow: 0px 6px 18px #00000055;
+    }
+
+    .clientes_cards {
+        display: flex;
+        overflow-x: auto;
+        gap: 20px;
+        scroll-snap-type: x mandatory;
+        -webkit-overflow-scrolling: touch;
+        padding-left: calc((100vw - 85%) / 2);
+        scroll-padding-left: calc((100vw - 85%) / 2);
+    }
+
+    .clientes_cards::-webkit-scrollbar {
+        display: none;
+    }
+
+    .cliente_card {
+        flex: 0 0 85%;
+        scroll-snap-align: center;
+        max-width: none;
+        padding: 25px 20px;
+    }
+
+    .clientes_titulo {
+        font-size: 42px;
+    }
+
+    .clientes_subtitulo {
+        font-size: 16px;
+    }
+
+    .cliente_card h3 {
+        font-size: 20px;
+    }
+
+    .estrelas2 {
+        font-size: 24px;
+    }
+
+    .cliente_card p {
+        font-size: 14px;
     }
 }

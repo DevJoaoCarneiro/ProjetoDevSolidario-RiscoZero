@@ -33,9 +33,17 @@
     </div>
     <header>
         <section class="hero" id="inicio">
+
+            <!-- Video Desktop -->
             <video class="hero_video" autoplay muted loop playsinline onerror="this.style.display='none'">
                 <source src="./public/video/videoHero.mp4" type="video/mp4">
             </video>
+
+            <!-- Video Mobile -->
+            <video class="hero_video hero_video_mobile" autoplay muted loop playsinline>
+                <source src="./public/video/videoHeroMobile.mp4" type="video/mp4">
+            </video>
+
             <div class="hero-text">
                 <p class="introducao">Seu carro com brilho de novo</p>
                 <h1 class="titulo">TODOS OS DIAS</h1>
@@ -55,7 +63,7 @@
     </div>
     <section class="servicos">
 
-        <div class="servicos_cards scroll-reveal">
+        <div class="servicos_cards"  id="carrossel_servicos">
 
             <div class="card_servico">
                 <img src="./public/img/completo.png" alt="Lavagem Convencional" class="card_img">
@@ -109,7 +117,7 @@
                 </h1>
             </div>
 
-            <div class="carrossel">
+            <div class="carrossel carrossel_desktop">
                 <button class="carrossel-btn left">❮</button>
 
                 <div class="carrossel-container">
@@ -119,8 +127,17 @@
                 </div>
 
                 <button class="carrossel-btn right">❯</button>
+            </div>
 
+            <div class="carrossel carrossel_mobile">
+                <button class="carrossel-btn left">❮</button>
 
+                <div class="carrossel-container">
+                    <img src="./public/img/fotoMobile1.jpg" class="carrossel-img">
+                    <img src="./public/img/fotoMobile2.png" class="carrossel-img">
+                </div>
+
+                <button class="carrossel-btn right">❯</button>
             </div>
         </div>
     </section>
@@ -128,10 +145,10 @@
     <section>
         <div class="secao_padrao scroll-reveal">
             <h1 class="porque_titulo">
-                POR QUE ESCOLHER A <span>RISCO ZERO?</span>
+                POR QUE ESCOLHER O <span>RISCO ZERO?</span>
             </h1>
 
-            <div class="porque_cards">
+            <div class="porque_cards" id="carrossel_porque">
 
                 <div class="porque_card">
                     <div class="porque_icone">
@@ -242,7 +259,7 @@
 
     </section>
 
-    <section class="secao_padrao clientes_section scroll-reveal">
+    <section class="secao_padrao clientes_section scroll-reveal" >
 
         <h1 class="clientes_titulo">
             NOSSOS <span>CLIENTES</span>
@@ -250,7 +267,7 @@
 
         <h2 class="clientes_subtitulo">AVALIAÇÕES DO GOOGLE</h2>
 
-        <div class="clientes_cards">
+        <div class="clientes_cards" id="carrossel_clientes">
 
             <div class="cliente_card">
                 <h3>FRANCISCO HERRERO</h3>
@@ -278,7 +295,7 @@
     </section>
 
     <footer class="footer secao_padrao">
-        <div class="footer_left  ">
+        <div class="footer_left ">
             © 2025 RISCO ZERO • LAVA CAR E ESTÉTICA AUTOMOTIVA. TODOS OS DIREITOS RESERVADOS.
         </div>
 
