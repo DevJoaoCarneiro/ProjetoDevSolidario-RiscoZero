@@ -1,27 +1,35 @@
+function initCarrossel(wrapperSelector) {
+    const wrapper = document.querySelector(wrapperSelector);
+    if (!wrapper) return;
 
-let index = 0;
-const imagens = document.querySelectorAll(".carrossel-img");
-const container = document.querySelector(".carrossel-container");
+    const container = wrapper.querySelector(".carrossel-container");
+    const imagens = wrapper.querySelectorAll(".carrossel-img");
+    let index = 0;
 
-function atualizarCarrossel() {
-    if (!container) return;
-    container.style.transform = `translateX(${-index * 100}%)`;
+    function atualizarCarrossel() {
+        if (!container) return;
+        container.style.transform = `translateX(${-index * 100}%)`;
+    }
+
+    const botaoDireita = wrapper.querySelector(".carrossel-btn.right");
+    const botaoEsquerda = wrapper.querySelector(".carrossel-btn.left");
+
+    botaoDireita?.addEventListener("click", () => {
+        if (imagens.length === 0) return;
+        index = (index + 1) % imagens.length;
+        atualizarCarrossel();
+    });
+
+    botaoEsquerda?.addEventListener("click", () => {
+        if (imagens.length === 0) return;
+        index = (index - 1 + imagens.length) % imagens.length;
+        atualizarCarrossel();
+    });
 }
 
-const botaoDireita = document.querySelector(".carrossel-btn.right");
-const botaoEsquerda = document.querySelector(".carrossel-btn.left");
 
-botaoDireita?.addEventListener("click", () => {
-    if (imagens.length === 0) return;
-    index = (index + 1) % imagens.length;
-    atualizarCarrossel();
-});
-
-botaoEsquerda?.addEventListener("click", () => {
-    if (imagens.length === 0) return;
-    index = (index - 1 + imagens.length) % imagens.length;
-    atualizarCarrossel();
-});
+initCarrossel(".carrossel_desktop");
+initCarrossel(".carrossel_mobile");
 
 
 const observer = new IntersectionObserver(
@@ -33,15 +41,12 @@ const observer = new IntersectionObserver(
             }
         });
     },
-    {
-        threshold: 0.2,
-    }
+    { threshold: 0.2 }
 );
 
 document
     .querySelectorAll(".scroll-reveal")
     .forEach((el) => observer.observe(el));
-
 
 
 function centralizarCarrossel(containerId, cardSelector) {
@@ -63,9 +68,7 @@ function centralizarCarrossel(containerId, cardSelector) {
     const containerRect = container.getBoundingClientRect();
     const cardRect = targetCard.getBoundingClientRect();
 
-    const offsetInside =
-        cardRect.left - containerRect.left;
-
+    const offsetInside = cardRect.left - containerRect.left;
     const currentScroll = container.scrollLeft;
 
     const scrollTo =
@@ -75,10 +78,9 @@ function centralizarCarrossel(containerId, cardSelector) {
 
     container.scrollTo({
         left: scrollTo,
-        behavior: "auto", 
+        behavior: "auto",
     });
 }
-
 
 window.addEventListener("load", () => {
     if (window.matchMedia("(max-width: 480px)").matches) {
